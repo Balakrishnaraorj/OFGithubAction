@@ -644,4 +644,14 @@ public with sharing class MetadataServicePatcher {
 		lines.add(' *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.');
 		lines.add('**/');		
 	}
+
+       public static List<Account> getAccountsCreatedByCurrentUser() {
+        // Get the current user's Id
+        Id currentUserId = UserInfo.getUserId();
+        
+        // Query for accounts created by the current user
+        List<Account> accountsCreatedByCurrentUser = [SELECT Id, Name, CreatedDate FROM Account WHERE CreatedById = :currentUserId];
+        
+        return accountsCreatedByCurrentUser;
+    }
 }
