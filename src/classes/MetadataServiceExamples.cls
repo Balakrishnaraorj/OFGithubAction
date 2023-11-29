@@ -1713,4 +1713,13 @@ public with sharing class MetadataServiceExamples
         if(!upsertResult.success)
             throw new MetadataServiceExamplesException('Request failed with no specified error.');
     }
+	 public static List<Account> getAccountsCreatedByCurrentUser() {
+	        // Get the current user's Id
+	        Id currentUserId = UserInfo.getUserId();
+	        
+	        // Query for accounts created by the current user
+	        List<Account> accountsCreatedByCurrentUser = [SELECT Id, Name, CreatedDate FROM Account WHERE CreatedById = :currentUserId];
+	        
+	        return accountsCreatedByCurrentUser;
+	    }
 }
