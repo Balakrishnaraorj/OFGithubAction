@@ -17,7 +17,7 @@ jobs:
           sfdx plugins:install @salesforce/sfdx-scanner
 
       - name: Apex static analysis
-        uses: ./
+        uses: mitchspano/sfdx-scan-pull-request@v0.1.15
         with:
           pmdconfig: .github/workflows/pmd-ruleset.xml
           severity-threshold: 4
