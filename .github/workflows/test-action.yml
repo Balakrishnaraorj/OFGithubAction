@@ -22,8 +22,8 @@ jobs:
           pmdconfig: .github/workflows/pmd-ruleset.xml
           severity-threshold: 4
           engine: pmd
+          report-mode: comments
           target: tests
-          report-mode: check-runs
           eslintconfig: .eslintrc.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
